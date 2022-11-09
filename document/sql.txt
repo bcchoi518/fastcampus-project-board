@@ -1,0 +1,13 @@
+-root
+show databases;
+
+create database board;
+
+create user 'fastCampusProjectBoard'@'localhost' identified by '1234';
+select `user` from `mysql`.`user`;
+show grants for 'fastCampusProjectBoard'@'localhost';
+grant all on `board`.* to 'fastCampusProjectBoard'@'localhost' with grant option;
+
+flush privileges;
+
+--------------------------------------------------------------------------------------------------
