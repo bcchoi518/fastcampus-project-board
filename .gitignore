@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,visualstudio,visualstudiocode,intellij,intellij+all,intellij+iml,eclipse,notepadpp,c,c++,java,python,pythonvanilla,pycharm,pycharm+iml,pycharm+all,go,swift,swiftpm,swiftpackagemanager,oracleforms,data,database,datarecovery,git,node,gradle,maven,netbeans,microsoftoffice,vim,video,audio,django,vuejs,jupyternotebooks,nextjs,kotlin,redis
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,visualstudio,visualstudiocode,intellij,intellij+all,intellij+iml,eclipse,notepadpp,c,c++,java,python,pythonvanilla,pycharm,pycharm+iml,pycharm+all,go,swift,swiftpm,swiftpackagemanager,oracleforms,data,database,datarecovery,git,node,gradle,maven,netbeans,microsoftoffice,vim,video,audio,django,vuejs,jupyternotebooks,nextjs,kotlin,redis
 
+### Querydsl
+/src/main/generated
+
 ### Audio ###
 *.aif
 *.iff
