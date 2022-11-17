@@ -1,6 +1,5 @@
 package com.fastcampus.projectboard.util;
 
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.test.context.TestComponent;
@@ -19,6 +18,7 @@ public class FormDataEncoder {
         this.mapper = mapper;
     }
 
+
     public String encode(Object obj) {
         Map<String, String> fieldMap = mapper.convertValue(obj, new TypeReference<>() {});
         MultiValueMap<String, String> valueMap = new LinkedMultiValueMap<>();
@@ -30,4 +30,5 @@ public class FormDataEncoder {
                 .build()
                 .getQuery();
     }
+
 }

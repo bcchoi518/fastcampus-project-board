@@ -5,16 +5,17 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestComponent;
 import org.springframework.context.annotation.Import;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("테스트 도구 - Form 데이터 인코더")
 @Import({FormDataEncoder.class, ObjectMapper.class})
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = Void.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = FormDataEncoderTest.EmptyConfig.class)
 class FormDataEncoderTest {
 
     private final FormDataEncoder formDataEncoder;
@@ -28,7 +29,7 @@ class FormDataEncoderTest {
     void givenObject_whenEncoding_thenReturnsFormEncodedString() {
         // Given
         TestObject obj = new TestObject(
-                "This 'is' \"TEST\" string.",
+                "This 'is' \"test\" string.",
                 List.of("hello", "my", "friend").toString().replace(" ", ""),
                 String.join(",", "hello", "my", "friend"),
                 null,
@@ -71,4 +72,7 @@ class FormDataEncoderTest {
     enum TestEnum {
         ONE, TWO, THREE
     }
+
+    @TestComponent
+    public static class EmptyConfig {}
 }
