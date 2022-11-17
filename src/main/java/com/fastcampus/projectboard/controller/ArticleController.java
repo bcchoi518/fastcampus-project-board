@@ -91,8 +91,8 @@ public class ArticleController {
     }
 
     @GetMapping("/{articleId}/form")
-    public String updateArticleForm(@PathVariable Long articldId, ModelMap map) {
-        ArticleResponse article = ArticleResponse.from(articleService.getArticle(articldId));
+    public String updateArticleForm(@PathVariable Long articleId, ModelMap map) {
+        ArticleResponse article = ArticleResponse.from(articleService.getArticle(articleId));
 
         map.addAttribute("article", article);
         map.addAttribute("formStatus", FormStatus.UPDATE);
