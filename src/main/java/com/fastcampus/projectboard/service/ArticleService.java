@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -56,22 +58,18 @@ public class ArticleService {
     }
 
     public void saveArticle(ArticleDto dto) {
-        UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountdto().userId());
+        UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
         articleRepository.save(dto.toEntity(userAccount));
     }
 
     public void updateArticle(Long articleId, ArticleDto dto) {
         try {
             Article article = articleRepository.getReferenceById(articleId);
-            UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountdto().userId());
+            UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
 
             if (article.getUserAccount().equals(userAccount)) {
-                if (dto.title() != null) {
-                    article.setTitle(dto.title());
-                }
-                if (dto.content() != null) {
-                    article.setContent(dto.content());
-                }
+                if (dto.title() != null) { article.setTitle(dto.title()); }
+                if (dto.content() != null) { article.setContent(dto.content()); }
                 article.setHashtag(dto.hashtag());
             }
         } catch (EntityNotFoundException e) {
