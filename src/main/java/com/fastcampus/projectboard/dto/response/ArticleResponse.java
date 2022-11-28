@@ -18,9 +18,9 @@ public record ArticleResponse(
     }
 
     public static ArticleResponse from(ArticleDto dto) {
-        String nickname = dto.userAccountdto().nickname();
+        String nickname = dto.userAccountDto().nickname();
         if (nickname == null || nickname.isBlank()) {
-            nickname = dto.userAccountdto().userId();
+            nickname = dto.userAccountDto().userId();
         }
 
         return new ArticleResponse(
@@ -29,7 +29,7 @@ public record ArticleResponse(
                 dto.content(),
                 dto.hashtag(),
                 dto.createdAt(),
-                dto.userAccountdto().email(),
+                dto.userAccountDto().email(),
                 nickname
         );
     }

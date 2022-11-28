@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 public record ArticleDto(
         Long id,
-        UserAccountDto userAccountdto,
+        UserAccountDto userAccountDto,
         String title,
         String content,
         String hashtag,
