@@ -13,13 +13,15 @@ logging:
 
 spring:
   datasource:
-#    url: jdbc:mysql://localhost:3307/board
-#    username: fastCampusProjectBoard
-#    password: 1234
-    url: jdbc:mysql://mariadb:3306/fastcampusboard
-    username: fastcampusboard
-    password: fastcampusboard_pw
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://localhost:3307/board
+    #    username: fastCampusProjectBoard
+    #    password: 1234
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    # cloudType 에 배포할때 DB 설정
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     defer-datasource-initialization: true
     hibernate:
