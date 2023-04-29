@@ -32,11 +32,11 @@ Spring Boot
 
 * QueryDSL 5.0.0
 * Bootstrap 5.2.0-Beta1
-* Heroku
+* cloudtype
 
 ## 데모 페이지
 
-(작성 중)
+https://port-0-fastcampus-project-board-3nec02mlh1krqhl.sel4.cloudtype.app/
 
 ## 질문, 건의
 
